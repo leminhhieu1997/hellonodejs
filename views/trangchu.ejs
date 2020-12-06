@@ -1,0 +1,24 @@
+<htm>
+    <head> 
+        <title>Demo  socket</title>
+        <script src="jquery.js"></script>
+        <script src="socket.io/socket.io.js">  
+        </script>
+        <script>
+            var socket =  io("http://localhost:3000");
+            socket.on("Client-send-data",function(data){
+                $("#noidung").append(data+" , ");
+            });
+            $(document).ready(function(){
+                $("#mrA").click(function(){
+                    alert("xabc");
+                    socket.emit("Client-send-data","Hello");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="mrA">Click send</div>
+        <h2 id="noidung"></h2>
+    </body>
+</htm>
